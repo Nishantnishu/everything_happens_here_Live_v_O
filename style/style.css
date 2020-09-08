@@ -29,9 +29,9 @@ ehh{
 content{
   height: 100vh;
   width: 100vw;
-   display: grid;
-    grid-column: 1 / 4;
-  border-style: dotted; 
+display: grid;
+grid-column: 1 / 4;
+
   
 }
 
@@ -59,9 +59,9 @@ actionBar{
 button {
   border-radius: 3px;
    border: none;
-   padding: 13px 32px;
-  text-align: center;
-   display: inline-block;
+   padding: 8px 54px;
+    text-align: left;
+    display: inline-block;
    font-size: 16px;
 }
 
