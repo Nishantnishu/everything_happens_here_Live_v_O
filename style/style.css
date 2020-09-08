@@ -3,18 +3,6 @@
   margin: 0px;
   padding: 0px;
  }
-wallpaper {
-  position: absolute;
-  z-index: 69;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url(http://hdqwalls.com/wallpapers/macos-mojave-evening-mode-stock-l9.jpg);
-}
 
 [contenteditable="true"]:active,
 [contenteditable="true"]:focus{
@@ -28,15 +16,18 @@ body{
   bottom: 0; 
   height: 100vh;
 }
-
 ehh{
   position: fixed; 
   right: 0;
   bottom: 0;
   display: grid;
   grid-template-rows:  1fr auto;
-  
+     z-index: 250;
 }
+
+
+
+
 
 content{
   height: 100vh;
@@ -46,7 +37,6 @@ grid-column: 1 / 4;
 
   
 }
-
 section{ 
  display: grid;
  width: 100%;
@@ -59,7 +49,7 @@ section{
 
 container{
   padding: 8%;
-box-shadow: 1px 1px 30px 1px rgba(0,0,0,0.05);
+
 }
 
 footer {  
@@ -72,22 +62,26 @@ footer {
 }
 
 actionBar{
-  
-  padding-top: 2rem;
+ margin-top: 5%;
+  padding-top: 34px;
 }
 button {
+  margin: 1%;
   border-radius: 3px;
-   border: none;
-   padding: 8px 54px;
-    text-align: left;
-    display: inline-block;
-   font-size: 16px;
+  border: none;
+  padding: 8px 54px;
+  text-align: center;
+  font-family: 'poppins'; 
+  display: inline-block;
+  font-size: 16px;
+  background-color: transparent;
+  box-shadow: 1px 1px 30px 1px rgba(0,0,0,0.10);
 }
 
 
 h1{
   font-family: 'Bai Jamjuree', sans-serif;
   font-size: 54px;
-  margin-bottom: 21px;
+  margin-bottom: 34px;
   font-weight: 200;
 }
