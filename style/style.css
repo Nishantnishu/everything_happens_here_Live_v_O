@@ -3,9 +3,10 @@
   margin: 0px;
   padding: 0px;
  }
-wallpaper {
+
+.wallpaper {
   position: absolute;
-  z-index: 69;
+  z-index: 0;
   top: 0;
   left: 0;
   right: 0;
@@ -30,13 +31,22 @@ body{
 }
 
 ehh{
-  position: fixed; 
-  right: 0;
-  bottom: 0;
+  position: absolute;
+	z-index: 250;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   display: grid;
   grid-template-rows:  1fr auto;
+  z-index: 250;
+  background-color: #4b4b4b;
   
+  background: linear-gradient(to right,#393836 0%,#43403e 100%);
 }
+
+
+
+
 
 content{
   height: 100vh;
