@@ -2,7 +2,6 @@
 *{
 margin: px;
 padding: 0%;
-
 }
 
 [contenteditable="true"]:active,
@@ -14,8 +13,8 @@ body{
   position: absolute; 
   top: 0;
   left: 0; 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -23,17 +22,20 @@ ehh{
   position: absolute; 
   left: 0;
   top: 0; 
-  width: 100%;
-  height: 100%;
   font-size: 21px;
   font-family: 'poppins';
+  grid-template: auto 1fr auto / auto 1fr auto;
+}
+h1{
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-size: 34px;
+  
 }
 
-
 footer {  
-  padding: 2rem;
+  position: absolute;
+right: 1%;
   text-align: center;
-  grid-column: 1 / 4;
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
 }
