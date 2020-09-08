@@ -28,3 +28,12 @@ ehh{
   font-size: 21px;
   font-family: 'poppins';
 }
+
+
+footer {  
+  padding: 2rem;
+  text-align: center;
+  grid-column: 1 / 4;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+}
