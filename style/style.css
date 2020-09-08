@@ -37,11 +37,11 @@ content{
    height: 100%;
 }
 section{
-  display: inline-block;
- font-size: 21px;
+ top: 50%;
+  left: 50%;
+ font-size: 16px;
  font-family: 'poppins';
  border-style: solid;
- background-color: blueviolet;
 }
 
 footer {  
@@ -96,64 +96,6 @@ brandAssets{
 }
 
 
-actionBar{
-  margin-left: 144px;
-  font-family: 'Bai Jamjuree', sans-serif;
-  font-size: 21px;
-  
-}
-
-actionBar > *{
-  padding: 13px;
-  padding-left: 21px;
-  padding-right: 21px;
-  cursor: pointer;
-  border-radius: 8px;
-
-}
-actionBar > *:hover{
-  box-shadow: 1px 1px 20px 1px rgba(0,0,0,0.10);
-}
-
-
-
-action {
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  width: 50%;
-  height: 50%;
-  font-family: 'Poppins', sans-serif;
-  border: firebrick;
-  border-style: dotted;
-  align-self: center;
-}
-
-people {
-display: flex;
-flex-direction: row;
-border-radius: 5px;
-width: 50%;
-height: 50%;
-font-family: 'Poppins', sans-serif;
-background-color: brown;
-align-self: center;
-}
-
-
-
-setting {
-display: flex;
-flex-direction: column;
-border-radius: 5px;
-width: 50%;
-height: 50%;
-font-family: 'Poppins', sans-serif;
-align-self: center;
-background-color: blueviolet;
-}
-
-
 
 newElement{
   display: inline-block;
@@ -163,55 +105,6 @@ newElement{
   border: 3px solid red;
 }
 
-
-/* Closable button inside the container tab */
-.closebtn {
-  float: right;
-  font-size: 35px;
-  cursor: pointer;
-}
-
-
-.item{
-height: 50px;
-width: 50px;
-position: absolute;
-background-color: gold;
-}
-
-
-.resizer{
-position: absolute;
-width: 10px; 
-height: 10px;
-background-color: black;
-z-index: 2;
-border-radius: 3px;
-}
-
-.resizer.nw{
-top:-1px;
-left:-1px;
-cursor: nw-resize;
-}
-
-.resizer.ne{
-top:-1px;
-right:-1px;
-cursor: ne-resize;
-}
-
-.resizer.sw{
-  bottom:-1px;
-  left:-1px;
-  cursor: sw-resize;
-}
-
-.resizer.se{
-    bottom:-1px;
-    right:-1px;
-    cursor: se-resize;
-}
 
 h1{
     font-family: 'Bai Jamjuree', sans-serif;
