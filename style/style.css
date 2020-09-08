@@ -22,34 +22,31 @@ ehh{
   right: 0;
   bottom: 0;
   display: grid;
-  height: 100vh;
-  width: 100vw;
   grid-template-rows:  1fr auto;
   
 }
 
 content{
-   grid-column: 2 / 3;
-   padding-left: 144 px;
+  height: 100vh;
+  width: 100vw;
    display: grid;
-   width: 100%;
-   height: 100%;
+    grid-column: 1 / 4;
+  border-style: dotted; 
+  
 }
 
-section{
- 
+section{ 
  display: grid;
  place-content: center;
  font-size: 16px;
- font-family: 'poppins';
-
- vertical-align: middle
+ font-family: 'poppins'; 
  
 }
 
 footer {  
   padding: 2rem;
-  text-align: center;
+  padding-right: 5%;
+  text-align: right;
   grid-column: 1 / 4;
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
@@ -69,47 +66,9 @@ button {
 }
 
 
-
-brandAssets{
-  margin: 21px;
-  padding: 13px;
-  height: 125px; 
-  font-family: 'Bai Jamjuree', sans-serif;
-  font-size: 21px;
-  font-weight: 100;
-}
-
-.searchBar{
-  padding-left: 13px;
-  padding: 8px;
-  margin-left: 54px;
-  margin-right: 54px;
-  font-family: 'Poppins', sans-serif;  
-  border-radius: 3px;
-  border: none;
-  font-size: 21px;
-  width: 300px;
-  -webkit-transition: width .35s ease-in-out;
-  transition: width .35s ease-in-out;
-  
-}
-
-.searchBar:focus {
-  width: 500px;
-}
-
-
-
-newElement{
-  display: inline-block;
-  position: fixed;
-  resize: both;
-  border-radius: 13px;
-  border: 3px solid red;
-}
-
-
 h1{
   font-family: 'Bai Jamjuree', sans-serif;
-  font-size: 34px;
+  font-size: 54px;
+  margin-bottom: 21px;
+  font-weight: 200;
 }
