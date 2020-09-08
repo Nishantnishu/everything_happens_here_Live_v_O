@@ -4,19 +4,6 @@
   padding: 0px;
  }
 
-.wallpaper {
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url(http://hdqwalls.com/wallpapers/macos-mojave-evening-mode-stock-l9.jpg);
-}
-
 [contenteditable="true"]:active,
 [contenteditable="true"]:focus{
   border:none;
@@ -29,19 +16,13 @@ body{
   bottom: 0; 
   height: 100vh;
 }
-
 ehh{
-  position: absolute;
-	z-index: 250;
-	top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  position: fixed; 
+  right: 0;
+  bottom: 0;
   display: grid;
   grid-template-rows:  1fr auto;
-  z-index: 250;
-  background-color: #4b4b4b;
-  
-  background: linear-gradient(to right,#393836 0%,#43403e 100%);
+     z-index: 250;
 }
 
 
