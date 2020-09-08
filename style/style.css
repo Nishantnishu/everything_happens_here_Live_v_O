@@ -16,6 +16,7 @@ body{
   bottom: 0; 
   height: 100vh;
 }
+
 ehh{
   position: fixed; 
   right: 0;
@@ -84,4 +85,9 @@ h1{
   font-size: 54px;
   margin-bottom: 34px;
   font-weight: 200;
+}
+
+p{
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
