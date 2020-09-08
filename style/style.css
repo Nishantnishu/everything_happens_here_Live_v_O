@@ -4,6 +4,12 @@ margin: px;
 padding: 0%;
 
 }
+
+[contenteditable="true"]:active,
+[contenteditable="true"]:focus{
+  border:none;
+  outline:none;
+}
 body{
   position: absolute; 
   top: 0;
