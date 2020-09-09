@@ -8,8 +8,10 @@
   
  }
 
- *:hover{
+*:hover{
 border-style: solid;
+border-width: thin;
+border-radius: 5px;
  }
 
 
