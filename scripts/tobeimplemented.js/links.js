@@ -16,12 +16,14 @@
 //https://quilljs.com/docs/quickstart/
 //https://kothing.github.io/editor/html/getting-started.html
 //https://www.youtube.com/watch?v=lis7vG-D4bA&feature=emb_logo
+//https://codepen.io/duked/full/xgmzqw
 
-buttons a: hover: before {
-    content: attr(title);
-    background: #fff;
-    position: absolute;
-    right: 150 %;
-    font - family: helvetica;
-    color: #96BF0D;
-}
+
+// buttons a: hover: before {
+//     content: attr(title);
+//     background: #fff;
+//     position: absolute;
+//     right: 150 %;
+//     font - family: helvetica;
+//     color: #96BF0D;
+// }
