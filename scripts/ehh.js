@@ -27,23 +27,25 @@ let event = {
 
 }
 
-
 //this function acts like a event conductor, read it's event command mapp from a json file, which mapps 
 //Ignore Events from Json to be implemented
 //https://github.com/philipwalton/router/blob/master/index.js
 
 function onEvent(e) {
- 
-    if (e.type === "mousedown") {
+    //console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+    if (e.type === "click") {
+        console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+        click(e);
+        // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
+    } else if (e.type === "mousedown") {
        // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
     } else if (e.type === "contextmenu") {
-        console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+       // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         //createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
         e.preventDefault();
-        var targetEntity = e.target;
+        rightClick(e);
         
-        console.log(targetElement);
     } else {
         if (e.type === "mouseover") {
          //   console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
@@ -70,4 +72,22 @@ function find(entity, keyTofind) {
 function save(entity, keyTitle) {
      console.log("saving", keyTitle, JSON.stringify(entity));
     window.localStorage.setItem(keyTitle, JSON.stringify(entity));
+}
+
+
+function rightClick(event) { 
+    console.log("contextClick", event);
+    var contextElement = document.getElementById("context-menu");
+    contextElement.style.top = event.clientY + "px";
+    contextElement.style.left = event.clientX + "px";
+    contextElement.classList.add("active");
+    contextElement.style.display = 'block';
+}
+
+
+function click(e) { 
+    document.getElementById("context-menu").classList.remove("active");
+    var contextElement = document.getElementById("context-menu");
+    console.log("clickedOn",contextElement);
+    contextElement.style.display = 'none';
 }

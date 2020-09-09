@@ -27,17 +27,6 @@
 	border-radius: 4px;
 	
 }
-.controls {
-	position: absolute;
-	z-index: 250;
-	top: 6px;
-	left: 8px;
-	&:hover .btn {
-		&:before, &:after {
-			visibility: visible;
-		}
-	}
-}
 .btn {
 	float: left;
 	display: block;

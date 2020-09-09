@@ -38,7 +38,7 @@ ehh{
   position: fixed; 
   right: 0;
   bottom: 0;
-  display: #grid;
+  display: grid;
   grid-template-rows:  1fr auto;
      z-index: 250;
 }
@@ -78,8 +78,8 @@ footer {
 actionBar{
 margin-top: 5px;
 }
+
 button {
- 
   border-radius: 3px;
   border: none;
   padding: 8px 54px;
@@ -108,11 +108,46 @@ p{
 
 
 
-@media only screen and (max-width: 400px){
-  h1{
-      font-size: 40px;
-  }
-  button{
-      margin: 2%;
-  }
+menu {
+  display: block;
+  list-style-type: disc;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+
+
+#context-menu {
+  position: fixed;
+  z-index:10000;
+  width:150px;
+  background:#f3eee6 80%;
+    box-shadow: 1px 1px 30px 1px rgba(0,0,0,0.10);
+  border-radius:5px;
+  transform:scale(0);
+  transform-origin:top left;
+
+}
+#context-menu.active {
+  transform:scale(1);
+  transition:transform 300ms ease-in-out;
+}
+#context-menu .item {
+  padding:8px 10px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-size:15px;
+  color:black;
+}
+#context-menu .item:hover {
+  background:#fff4f5 20%;
+}
+#context-menu .item i {
+  display:inline-block;
+  margin-right:8px;
+}
+#context-menu hr {
+  margin:2px 0px;
+  border-color:rgb(173, 173, 173);
 }
