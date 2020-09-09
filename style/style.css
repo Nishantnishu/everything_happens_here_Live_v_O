@@ -5,14 +5,15 @@
  -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10+ and Edge */
   user-select: none; /* Standard syntax */
-  
+ 
  }
 
 *:hover{
-border-style: solid;
-border-width: thin;
-border-radius: 5px;
- }
+  cursor: pointer;
+  border-bottom-style: solid;
+  border-width: thin;
+  border-radius: 5px;
+}
 
 
 [contenteditable="true"]:active,
@@ -37,6 +38,8 @@ ehh{
   grid-template-rows:  1fr auto;
      z-index: 250;
 }
+
+
 
 content{
   height: 100vh;
@@ -69,11 +72,10 @@ footer {
 }
 
 actionBar{
-
- 
+margin-top: 5px;
 }
 button {
-  margin: 1%;
+ 
   border-radius: 3px;
   border: none;
   padding: 8px 54px;
@@ -97,6 +99,7 @@ h1{
 p{
   margin-top: 13px;
   margin-bottom: 13px;
+ 
 }
 
 
