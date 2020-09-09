@@ -2,6 +2,14 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  box-sizing: inherit;
+  transition-duration: 500ms;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: .6s;
+          transition-duration: .6s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
  }
 
 [contenteditable="true"]:active,
