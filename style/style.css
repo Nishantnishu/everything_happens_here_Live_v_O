@@ -15,6 +15,10 @@ ehh:hover{
   border-radius: 5px;
 }
 
+*:focus{
+  border:none;
+  outline:none;
+}
 
 [contenteditable="true"]:active,
 [contenteditable="true"]:focus{
@@ -34,7 +38,7 @@ ehh{
   position: fixed; 
   right: 0;
   bottom: 0;
-  display: grid;
+  display: #grid;
   grid-template-rows:  1fr auto;
      z-index: 250;
 }

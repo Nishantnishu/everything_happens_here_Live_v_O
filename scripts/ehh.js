@@ -11,12 +11,11 @@ function createListeners(entity) {
  //   console.log(entity);
     var events = find(entity, 'on');
   // console.log("events Found",events);
-   var a = events.forEach(create);
+    var a = events.forEach(create);
     console.log(a);
     save(events, this.constructor.name+"listeners");
     console.log("listernes created & Saved to local storagea at ", new Date().toLocaleString().replace(',', ''), this.constructor.name);
 }
-
 let event = {
     "origin": ["mouse", "window", "ehh", "HTTP", "keyBoard"],
     "eventState": {
@@ -28,18 +27,26 @@ let event = {
 
 }
 
+
+//this function acts like a event conductor, read it's event command mapp from a json file, which mapps 
+//Ignore Events from Json to be implemented
+//https://github.com/philipwalton/router/blob/master/index.js
+
 function onEvent(e) {
  
     if (e.type === "mousedown") {
-        console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+       // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
     } else if (e.type === "contextmenu") {
         console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         //createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
         e.preventDefault();
+        var targetEntity = e.target;
+        
+        console.log(targetElement);
     } else {
         if (e.type === "mouseover") {
-            console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+         //   console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
             // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
         } 
 
@@ -48,12 +55,9 @@ function onEvent(e) {
 
 }
 
-
 function create(entity) {
     window[entity] = onEvent;
 }
-
-
 
 function find(entity, keyTofind) {
    // console.log("finding", keyTofind, "in", entity);
