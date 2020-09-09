@@ -15,7 +15,7 @@
 //https://github.com/ilyashubin/hover-inspect/blob/master/app/hoverinspect.js
 //https://quilljs.com/docs/quickstart/
 //https://kothing.github.io/editor/html/getting-started.html
-
+//https://www.youtube.com/watch?v=lis7vG-D4bA&feature=emb_logo
 
 buttons a: hover: before {
     content: attr(title);
