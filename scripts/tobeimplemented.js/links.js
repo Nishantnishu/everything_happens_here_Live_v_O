@@ -6,3 +6,13 @@
 //https://codepen.io/iceable/pen/yLBrZOd
 //https://codepen.io/argyleink/pen/bgVOMO
 //https://codepen.io/anthonydugois/pen/RpYBmy
+
+
+buttons a: hover: before {
+    content: attr(title);
+    background: #fff;
+    position: absolute;
+    right: 150 %;
+    font - family: helvetica;
+    color: #96BF0D;
+}
