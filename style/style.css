@@ -1,74 +1,42 @@
 *{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
- }
-
-[contenteditable="true"]:active,
-[contenteditable="true"]:focus{
-  border:none;
-  outline:none;
 }
 
 body{
-  position: absolute; 
-  right: 0;
-  bottom: 0; 
-  height: 100vh;
+  text-align: center;
+  height: 669px;
+  padding: 20px;
+  color: white;
 }
 
 ehh{
-  position: fixed; 
-  right: 0;
-  bottom: 0;
-  display: grid;
-  grid-template-rows:  1fr auto;
-     z-index: 250;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-
-
-
 
 content{
-  height: 100vh;
-  width: 100vw;
-display: grid;
-grid-column: 1 / 4;
-
-  
-}
-section{ 
- display: grid;
- width: 100%;
- height: 100%;
- padding-top: 13%;
- font-size: 13px;
- font-family: 'poppins'; 
+  height: 100%;
 }
 
+section{
+  height: 100%;
+}
 container{
-  padding: 8%;
-
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-footer {  
-  padding: 2rem;
-  padding-right: 5%;
-  text-align: right;
-  grid-column: 1 / 4;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-}
-
-actionBar{
- margin-top: 5%;
-  padding-top: 34px;
-}
 button {
   margin: 1%;
   border-radius: 3px;
-  border: none;
+  color: white;
+  border: groove;
   padding: 8px 54px;
   text-align: center;
   font-family: 'poppins'; 
@@ -78,10 +46,23 @@ button {
   box-shadow: 1px 1px 30px 1px rgba(0,0,0,0.10);
 }
 
+.wallpaper::after {
+  content: "";
+	position: absolute;
+  z-index: -1;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url(http://hdqwalls.com/wallpapers/macos-mojave-evening-mode-stock-l9.jpg) no-repeat center center/cover;
+}
 
 h1{
   font-family: 'Bai Jamjuree', sans-serif;
-  font-size: 54px;
+  font-size: 50px;
   margin-bottom: 34px;
   font-weight: 200;
 }
@@ -89,4 +70,17 @@ h1{
 p{
   margin-top: 13px;
   margin-bottom: 13px;
+}
+
+footer{
+  float: right;
+}
+
+@media only screen and (max-width: 400px){
+  h1{
+      font-size: 40px;
+  }
+  button{
+      margin: 2%;
+  }
 }
