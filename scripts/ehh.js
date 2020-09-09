@@ -34,7 +34,7 @@ let event = {
 function onEvent(e) {
     //console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
     if (e.type === "click") {
-        console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+      //  console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         click(e);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
     } else if (e.type === "mousedown") {
@@ -70,7 +70,7 @@ function find(entity, keyTofind) {
 }
 
 function save(entity, keyTitle) {
-     console.log("saving", keyTitle, JSON.stringify(entity));
+    // console.log("saving", keyTitle, JSON.stringify(entity));
     window.localStorage.setItem(keyTitle, JSON.stringify(entity));
 }
 
