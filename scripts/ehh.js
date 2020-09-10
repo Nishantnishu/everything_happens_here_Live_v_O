@@ -21,6 +21,9 @@ let event = {
     "origin": ["mouse", "window", "ehh", "HTTP", "keyBoard"],
 }
 
+
+
+
 function initState(e) {
     var nodes = [];
     //currentState = e.type;
@@ -32,7 +35,7 @@ function initState(e) {
 }
 
 function changeState(e) {
-    console.log("changing state");
+    //console.log("changing state for event");
     var targetElement = e.target;
    // console.log(targetElement);
     
@@ -43,19 +46,43 @@ function changeState(e) {
     //console.log("prev state",prevState);
 
     if (prevState === currentState) {
+        targetElement.setAttribute('currentstate', e.type); //console.log(prevState);
+       // console.log("New State",targetElement);
         //console.log("samestate",targetElement);
     }else{
         targetElement.setAttribute('prevstate', currentState); //console.log(prevState);
         targetElement.setAttribute('currentstate', e.type); //console.log(prevState);
-        console.log("New State",targetElement);
+       // console.log("New State",targetElement);
     }
-
+conductEvent(e);
     //console.log(targetElement.getAttributes(prevstate));
 
 }
+
+function conductEvent(e){
+    if (e.type === "click") {
+        // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+        click(e);
+         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
+     } else {
+        if (e.type === "contextmenu") {
+            // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+             //createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
+             e.preventDefault();
+             rightClick(e);
+             
+         } 
+     }
+
+
+
+}
+
 //this function acts like a event conductor, read it's event command mapp from a json file, which mapps 
 //Ignore Events from Json to be implemented
 //https://github.com/philipwalton/router/blob/master/index.js
+
+
 
 function onEvent(e) {
    // console.log(e.constructor.name, e.type, "captured", e.target.tagName);
@@ -64,39 +91,10 @@ function onEvent(e) {
        initState(e);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
     } if (e.constructor.name === "MouseEvent") {
-        console.log(e.constructor.name, e.type, "captured", e.target.tagName);
+        //console.log(e.constructor.name, e.type, "captured", e.target.tagName);
         changeState(e);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
     }
-
-
-    if (e.type === "mouseover") {
-       //  console.log(e.constructor.name, e.type, "captured", e.target.tagName);
-       // changeState(e);
-          // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
-      }  if (e.type === "click") {
-       // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
-     // click(e);
-        // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
-    } if (e.type === "mousedown") {
-        changeState(e);
-      // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
-        // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
-    }  if (e.type === "contextmenu") {
-       // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
-        //createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
-        e.preventDefault();
-       // rightClick(e);
-        
-    }  {
-        if (e.type === "mouseover") {
-         //   console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
-            // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
-        } 
-
-
-    }
-
 }
 
 function create(entity) {
@@ -105,30 +103,31 @@ function create(entity) {
 
 
 function rightClick(event) { 
-    console.log("contextClick", event);
+    //console.log("contextClick", event);
     var contextElement = document.getElementById("context-menu");
     contextElement.style.top = event.clientY + "px";
     contextElement.style.left = event.clientX + "px";
-    contextElement.classList.add("active");
     contextElement.style.display = 'block';
 }
 
+
+
+
+
+
 function click(e) { 
-    document.getElementById("context-menu").classList.remove("active");
-    var contextElement = document.getElementById("context-menu");
-    console.log("clickedOn",contextElement);
-    contextElement.style.display = 'none';
+    var targetElement = e.target;
+    //console.log("foundclikc")
+    var contextElement = document.getElementById("context-menu");  
+    if(contextElement.hasAttribute("currentState")){
+        //console.log("clickedOn",targetElement);  
+        contextElement.style.display = 'none';
+
+    }
+
 }
 
 
-
-
-function updateAttr(e){
-var targetElement = e.target;
-//targetElement.setAttribute('class', e.type);
-console.log(targetElement);
-//targetElement.classList.add(e.type);
-}
 
 
 
