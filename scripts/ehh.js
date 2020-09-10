@@ -96,8 +96,8 @@ function click(e) {
     contextElement.style.display = 'none';
 }
 
-
 function updateAttr(e){
-
-
+var targetElement = e.target;
+console.log(targetElement);
+targetElement.classList.add(e.type);
 }
