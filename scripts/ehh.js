@@ -32,17 +32,22 @@ function initState(e) {
 }
 
 function changeState(e) {
+    console.log("changing state");
     var targetElement = e.target;
-    console.log(targetElement);
+   // console.log(targetElement);
+    
     let currentState = targetElement.getAttribute('currentstate');
     let prevState = targetElement.getAttribute('prevstate'); 
     
-    console.log("current state", currentState);
-    console.log("prev state",prevState);
-    if (prevState != currentState) {
+    //console.log("current state", currentState);
+    //console.log("prev state",prevState);
+
+    if (prevState === currentState) {
+        //console.log("samestate",targetElement);
+    }else{
         targetElement.setAttribute('prevstate', currentState); //console.log(prevState);
         targetElement.setAttribute('currentstate', e.type); //console.log(prevState);
-        console.log("statechanged");
+        console.log("New State",targetElement);
     }
 
     //console.log(targetElement.getAttributes(prevstate));
@@ -53,15 +58,21 @@ function changeState(e) {
 //https://github.com/philipwalton/router/blob/master/index.js
 
 function onEvent(e) {
-  //  console.log(e.constructor.name, e.type, "captured", e.target.tagName);
+   // console.log(e.constructor.name, e.type, "captured", e.target.tagName);
     if (e.type === "pageshow") {
-        console.log(e.constructor.name, e.type, "captured", e.target.tagName);
+        //console.log(e.constructor.name, e.type, "captured", e.target.tagName);
        initState(e);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
-    }   
-    if (e.type === "mouseover") {
-         console.log(e.constructor.name, e.type, "captured", e.target.tagName);
+    } if (e.constructor.name === "MouseEvent") {
+        console.log(e.constructor.name, e.type, "captured", e.target.tagName);
         changeState(e);
+        // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
+    }
+
+
+    if (e.type === "mouseover") {
+       //  console.log(e.constructor.name, e.type, "captured", e.target.tagName);
+       // changeState(e);
           // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
       }  if (e.type === "click") {
        // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
@@ -69,13 +80,13 @@ function onEvent(e) {
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
     } if (e.type === "mousedown") {
         changeState(e);
-       console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+      // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
     }  if (e.type === "contextmenu") {
        // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         //createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
         e.preventDefault();
-        rightClick(e);
+       // rightClick(e);
         
     }  {
         if (e.type === "mouseover") {
