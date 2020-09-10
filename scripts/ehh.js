@@ -34,7 +34,7 @@ let event = {
 function onEvent(e) {
     //console.log(e);
     if (e.type === "mouseover") {
-          console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+          console.log(e.constructor.name, e.type, "captured", e.target.tagName);
           updateAttr(e);
           // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
       } else if (e.type === "click") {
@@ -99,5 +99,5 @@ function click(e) {
 
 function updateAttr(e){
 
-    
+
 }
