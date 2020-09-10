@@ -32,10 +32,14 @@ let event = {
 //https://github.com/philipwalton/router/blob/master/index.js
 
 function onEvent(e) {
-    //console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
-    if (e.type === "click") {
-      //  console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
-        click(e);
+    //console.log(e);
+    if (e.type === "mouseover") {
+          console.log(e.constructor.name, e.type, "captured", e.target.tagName);
+          updateAttr(e);
+          // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
+      } else if (e.type === "click") {
+        console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+      click(e);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
     } else if (e.type === "mousedown") {
        // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
@@ -90,4 +94,10 @@ function click(e) {
     var contextElement = document.getElementById("context-menu");
     console.log("clickedOn",contextElement);
     contextElement.style.display = 'none';
+}
+
+
+function updateAttr(e){
+
+
 }

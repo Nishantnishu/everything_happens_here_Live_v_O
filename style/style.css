@@ -7,13 +7,31 @@
   user-select: none; /* Standard syntax */
  
  }
+ :root {
+  background: linear-gradient(135deg, #f0f0f0 , #f3eee6 80%);
+  font-size: 13px;
+  font-family: 'poppins';
+}
+ 
+ehh > * :hover{
+    
+}
 
-ehh:hover{
-  
+
+ehh > * :hover::before {
+  content: "Read this: "+ attr(class);
+  color: #1e2326;
+  position: absolute;
+  display:block;
+  background-color: yellow;
+  z-index: -1;
   border-bottom-style: solid;
   border-width: thin;
-  border-radius: 5px;
-}
+  border-radius: 5px; 
+  }
+
+
+
 
 *:focus{
   border:none;
@@ -34,7 +52,7 @@ body{
 }
 
 ehh{
-  background: linear-gradient(135deg, #f0f0f0 , #f3eee6 80%);
+  
   position: fixed; 
   right: 0;
   bottom: 0;
@@ -59,8 +77,7 @@ section{
  height: 100%;
  top: 50%;
  padding-top: 13%;
- font-size: 13px;
- font-family: 'poppins'; 
+ 
 }
 
 container{
@@ -101,12 +118,12 @@ h1{
   text-shadow: 1px 1px rgba(0, 0, 0, 0.02), 2px 2px rgba(0, 0, 0, 0.02), 3px 3px rgba(0, 0, 0, 0.02), 4px 4px rgba(0, 0, 0, 0.02), 0.125rem 0.125rem rgba(0, 0, 0, 0.02), 6px 6px rgba(0, 0, 0, 0.02), 7px 7px rgba(0, 0, 0, 0.02), 8px 8px rgba(0, 0, 0, 0.02), 9px 9px rgba(0, 0, 0, 0.02), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.02), 11px 11px rgba(0, 0, 0, 0.02), 12px 12px rgba(0, 0, 0, 0.02), 13px 13px rgba(0, 0, 0, 0.02), 14px 14px rgba(0, 0, 0, 0.02), 0.625rem 0.625rem rgba(0, 0, 0, 0.02), 16px 16px rgba(0, 0, 0, 0.02), 17px 17px rgba(0, 0, 0, 0.02), 18px 18px rgba(0, 0, 0, 0.02), 19px 19px rgba(0, 0, 0, 0.02), 1.25rem 1.25rem rgba(0, 0, 0, 0.02);
 }
 
+
 p{
   margin-top: 13px;
   margin-bottom: 13px;
  color: #1e2326;
 }
-
 
 
 menu {
