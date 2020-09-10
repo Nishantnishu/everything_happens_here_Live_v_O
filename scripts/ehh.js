@@ -98,6 +98,7 @@ function click(e) {
 
 function updateAttr(e){
 var targetElement = e.target;
+targetElement.setAttribute('class', e.type);
 console.log(targetElement);
-targetElement.classList.add(e.type);
+//targetElement.classList.add(e.type);
 }
