@@ -18,11 +18,7 @@ function createListeners(entity) {
 }
 let event = {
     "origin": ["mouse", "window", "ehh", "HTTP", "keyBoard"],
-    "eventState": {
-        "currentState": "mouseMove",
-        "previousState": "mouseDown",
-        "predictNextState": ""
-    }
+    
 
 
 }
@@ -35,22 +31,22 @@ function onEvent(e) {
     //console.log(e);
     if (e.type === "mouseover") {
           console.log(e.constructor.name, e.type, "captured", e.target.tagName);
-          updateAttr(e);
+          //updateAttr(e);
           // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
-      } else if (e.type === "click") {
+      }  if (e.type === "click") {
         console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
       click(e);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
-    } else if (e.type === "mousedown") {
+    }  if (e.type === "mousedown") {
        // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
-    } else if (e.type === "contextmenu") {
+    }  if (e.type === "contextmenu") {
        // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         //createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
         e.preventDefault();
         rightClick(e);
         
-    } else {
+    }  {
         if (e.type === "mouseover") {
          //   console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
             // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
@@ -63,19 +59,6 @@ function onEvent(e) {
 
 function create(entity) {
     window[entity] = onEvent;
-}
-
-function find(entity, keyTofind) {
-   // console.log("finding", keyTofind, "in", entity);
-    var result = Object.keys(entity).filter(function (key, index, self) {
-        return !key.indexOf(keyTofind);
-    });
-    return result;
-}
-
-function save(entity, keyTitle) {
-    // console.log("saving", keyTitle, JSON.stringify(entity));
-    window.localStorage.setItem(keyTitle, JSON.stringify(entity));
 }
 
 
