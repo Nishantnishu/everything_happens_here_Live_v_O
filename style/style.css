@@ -23,9 +23,10 @@ ehh > * :hover{
 }
 
 [currentstate="mousemove"]::before{
-  content: "Read this: ";
+  content: attr(currentstate);
   color: #1e2326;
   position: absolute;
+  transform: translate(-10px, -10px);
   display:block;
   background-color: yellow;
   z-index: -1;
