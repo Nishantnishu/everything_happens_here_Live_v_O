@@ -1,18 +1,17 @@
 
-window.onload = windOnLoad();
+window.onload = OnLoad();
 
-function windOnLoad() {
+function OnLoad(e) {
     //window storage == session storage
     console.log("ehh is running! on >>>", window.document.title, window.document.location.origin);
     var listeners = createListeners(this);
 }
-
 function createListeners(entity) {
- //   console.log(entity);
+   console.log(entity);
     var events = find(entity, 'on');
   // console.log("events Found",events);
     var a = events.forEach(create);
-    console.log(a);
+   // console.log(a);
     save(events, this.constructor.name + "listeners");
     
     console.log("listernes created & Saved to local storagea at ", new Date().toLocaleString().replace(',', ''), this.constructor.name);
@@ -107,19 +106,17 @@ function rightClick(event) {
 
 function click(e) { 
     var targetElement = e.target;
-   
+    console.log(getEntityType(targetElement));
     var contextElement = document.getElementById("context-menu");  
     if(contextElement.hasAttribute("currentState")){
         //console.log("clickedOn",targetElement);  
         contextElement.style.display = 'none';
 
-    } if (detectObjectType(targetElement) ==="HTMLElement") { 
+    } if (getEntityType(targetElement).includes("Element") && targetElement!= contextElement) { 
        // console.log("foundclick", targetElement);
-        var eleAttr = targetElement.attributes;
-        var styleSheet = document.styleSheets;
-        //var rules = cssStyleSheet.cssRules;
-        console.log(styleSheet);
-
+        var output;
+        var outputType = "html"
+        processEntity(targetElement,"getCss",output,outputType);     
     }
 
 

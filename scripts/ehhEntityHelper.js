@@ -1,6 +1,3 @@
-var request = "";
-var entity = document.querySelector(request);
-
 
 
 /**
@@ -11,6 +8,7 @@ var entity = document.querySelector(request);
 const isValidElement = element => {
     return element.name && element.value;
 };
+
 
 
 
