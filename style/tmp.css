@@ -115,3 +115,17 @@
 	cursor: default;
 	border-radius: 0;
 }
+
+
+
+ehh > * :hover::before {
+  content: "Read this: "+ attr(class);
+  color: #1e2326;
+  position: absolute;
+  display:block;
+  background-color: yellow;
+  z-index: -1;
+  border-bottom-style: solid;
+  border-width: thin;
+  border-radius: 5px; 
+  }

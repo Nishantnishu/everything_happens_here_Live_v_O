@@ -15,35 +15,20 @@ const stateService = {
 }
 
 
-
-
-var state = {
-    currentState: "",
-    previousState:""
-
+var event = {
+    currentEvent: "currentEvent",
+    previousEvent:"prevEvent"
 }
 
-var event = {
+var state = {
+    currentState: "currentState",
+    previousState:"prevState"
+}
+
+
+
+var events = {
     "origin": ["mouse", "window", "ehh", "HTTP", "keyBoard"],
 
 
-}
-
-function changeState(e) {
-    var targetElement = e.target;
-    console.log(targetElement);
-    targetElement.setAttribute('currentState', e.type);
-    if (targetElement.state) {
-        var currentState = targetElement.getAttributes(state);
-        console.log(currentState);
-    }
-}
-
-
-changeState(entity,newState) {
-    //validate that newState actually exists
-    entity.getAttributes(currentState);
-    entity.setAtt
-    console.log(targetElement);
-//targetElement.classList.add(e.type);
 }
