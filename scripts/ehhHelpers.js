@@ -10,3 +10,15 @@ function save(entity, keyTitle) {
     // console.log("saving", keyTitle, JSON.stringify(entity));
     window.localStorage.setItem(keyTitle, JSON.stringify(entity));
 }
+
+
+
+
+/**
+* Checks that an HTMLelement has a non-empty `name` and `value` property.
+* @param  {Element} element  the element to check
+* @return {Bool}             true if the element is an input, false if not
+*/
+const isValidElement = element => {
+    return element.name && element.value;
+};

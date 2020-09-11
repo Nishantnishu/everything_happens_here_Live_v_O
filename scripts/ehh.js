@@ -16,12 +16,12 @@ function createListeners(entity) {
     save(events, this.constructor.name + "listeners");
     
     console.log("listernes created & Saved to local storagea at ", new Date().toLocaleString().replace(',', ''), this.constructor.name);
+
 }
+
 let event = {
     "origin": ["mouse", "window", "ehh", "HTTP", "keyBoard"],
 }
-
-
 
 
 function initState(e) {
@@ -55,7 +55,11 @@ conductEvent(e);
 
 }
 
-function conductEvent(e){
+function conductEvent(e) {
+    if (e.type === "mouseover") {
+        mouseOver(e);
+        // createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
+    } else
     if (e.type === "click") {
         // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
         click(e);
@@ -65,13 +69,9 @@ function conductEvent(e){
             // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
              //createElement(e); // onmousedown(e); // onmousedown(e); // console.log("body");
              e.preventDefault();
-             rightClick(e);
-             
+             rightClick(e);    
          } 
      }
-
-
-
 }
 
 //this function acts like a event conductor, read it's event command mapp from a json file, which mapps 
@@ -115,6 +115,23 @@ function click(e) {
 
     }
 
+}
+
+
+
+function mouseOver(e) {
+    // console.log(e.constructor.name, e.type, "captured", e.target.constructor.name);
+    
+    // var targetElement = e.target;
+    // console.log("foundclick", targetElement)
+    // var contextElement = document.getElementById("context-menu");
+    // if (contextElement.hasAttribute("currentState")) {
+    //     //console.log("clickedOn",targetElement);  
+    //     contextElement.style.display = 'none';
+
+    // }
+
+    
 }
 
 
