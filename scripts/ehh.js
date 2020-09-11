@@ -39,13 +39,9 @@ function changeState(e) {
     var targetElement = e.target;
    // console.log(targetElement);
     
-    let currentState = targetElement.getAttribute('currentstate');
+    let currentState = targetElement.getAttribute('currentstate'); //console.log("current state", currentState);  //console.log("prev state",prevState);
     let prevState = targetElement.getAttribute('prevstate'); 
-    
-    //console.log("current state", currentState);
-    //console.log("prev state",prevState);
-
-    if (prevState === currentState) {
+       if (prevState === currentState) {
         targetElement.setAttribute('currentstate', e.type); //console.log(prevState);
        // console.log("New State",targetElement);
         //console.log("samestate",targetElement);
@@ -101,7 +97,6 @@ function create(entity) {
     window[entity] = onEvent;
 }
 
-
 function rightClick(event) { 
     //console.log("contextClick", event);
     var contextElement = document.getElementById("context-menu");
@@ -110,14 +105,9 @@ function rightClick(event) {
     contextElement.style.display = 'block';
 }
 
-
-
-
-
-
 function click(e) { 
     var targetElement = e.target;
-    console.log("foundclikc", targetElement)
+    console.log("foundclick", targetElement)
     var contextElement = document.getElementById("context-menu");  
     if(contextElement.hasAttribute("currentState")){
         //console.log("clickedOn",targetElement);  
