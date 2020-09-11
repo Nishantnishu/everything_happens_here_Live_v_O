@@ -234,17 +234,4 @@ const reducerFunction = (data, element) => {
 
 
 
-   
-  
-// //This iterates any resonse and returns the desired out put, eg , Json, Array, HTML Element,
-function iterateResponse(object){
-    //console.log("recived For Iteration ", object);
-  for (const key in object ) {
-    console.log("keys",key,object);
-    if (object.hasOwnProperty(key)) {
-        const element = object[key];
-        iterateObject(element)
-        console.log(element);
-    }
-  }
-}
+ 

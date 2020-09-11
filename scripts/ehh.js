@@ -107,13 +107,21 @@ function rightClick(event) {
 
 function click(e) { 
     var targetElement = e.target;
-    console.log("foundclick", targetElement)
+   
     var contextElement = document.getElementById("context-menu");  
     if(contextElement.hasAttribute("currentState")){
         //console.log("clickedOn",targetElement);  
         contextElement.style.display = 'none';
 
+    } if (detectObjectType(targetElement) ==="HTMLElement") { 
+       // console.log("foundclick", targetElement);
+        var eleAttr = targetElement.attributes;
+        var styleSheet = document.styleSheets;
+        //var rules = cssStyleSheet.cssRules;
+        console.log(styleSheet);
+
     }
+
 
 }
 
