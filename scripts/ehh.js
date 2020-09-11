@@ -117,7 +117,7 @@ function rightClick(event) {
 
 function click(e) { 
     var targetElement = e.target;
-    //console.log("foundclikc")
+    console.log("foundclikc", targetElement)
     var contextElement = document.getElementById("context-menu");  
     if(contextElement.hasAttribute("currentState")){
         //console.log("clickedOn",targetElement);  

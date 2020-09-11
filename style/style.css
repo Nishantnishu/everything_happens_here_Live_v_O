@@ -17,7 +17,7 @@ ehh > * :hover{
 }
  
 
-[currentstate="mousemove"]{
+[currentstate="mousemve"]{
     border-bottom-style: solid;
     border-width: thin;
 }
@@ -34,6 +34,14 @@ ehh > * :hover{
   border-width: thin;
 }
 
+[currentstate="click"]::before{
+  content: "yo";
+  position: absolute;
+  display:block;
+  width:100%;
+  border-style: solid;
+  border-width: thin;
+}
 
 ehh > * :hover::before {
   content: "Read this: "+ attr(class);
