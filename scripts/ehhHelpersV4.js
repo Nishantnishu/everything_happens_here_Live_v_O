@@ -2,28 +2,21 @@
 function getEntityType(entity) {
     return Object.getPrototypeOf(entity).constructor.name;//entity.__proto__.constructor.name
 }
+// atemporary workinProgress variable, used to build output until mutated/created
 let wip;
 
+//function to in a way build per process usecase. It gets the processing Entity, and ships it to tranverse
 
-function buildCase() { 
-
-
-
-
-
-}
-  
   function processEntity(reqEntity,processingEntity,process, output, outputType) {
    
-    if (processingEntity === "CSSRuleList") {
+    if (processingEntity === "CSSRuleList" && process === 'matching') {
       var styleSheet = document.styleSheets;
       var cssRules = document.styleSheets[0].cssRules;
       console.log(cssRules);
-  
-      var tmp= traverseEntity(cssRules, reqEntity, process, output, outputType, wip);
+      var tmp = traverseEntity(cssRules, reqEntity, process, output, outputType, wip);
       console.log(tmp);   
-      
     }
+
   }
 
 
@@ -42,7 +35,7 @@ function buildCase() {
     } else if ((typeof entity === 'object') && (entity !== null)) {
       // console.log("foundObject", entity);
       var tmp = traverseObject(entity, reqEntity, process, output, outputType, wip);
-      console.log("ininte",tmp);  
+     // console.log("ininte",tmp);  
       //console.log("res",res);
     } else {
       console.log(entity);
@@ -51,28 +44,35 @@ function buildCase() {
   }
 
 
-  function exeProcess(entity, reqEntity, process, output, outputType, wip) {
+function exeProcess(entity, reqEntity, process, output, outputType, wip) {
+  if (!entity) { 
+    return;
+  }
    // console.log("exe",entity);
-    if (process === "matching") {// entity has a value selector text to be added.
-      if (reqEntity.matches(entity.selectorText) === true) {
-         //console.log(input.matches(entity.selectorText), entity); 
-        var tmp = buildOutput(entity, reqEntity, process, output, outputType, wip);
-        //console.log("tmp",tmp);
-        return tmp;
-      } else {
+  if (process === "matching") {// entity has a value selector text to be added.
+    // console.log(entity.selectorText,entity);
+    if (reqEntity.matches(entity.selectorText) === true && entity.selectorText) {
+      console.log(reqEntity.matches(entity.selectorText), entity); 
+
+    } else {
       // console.log("sending to trans",entity);
-        traverseEntity(entity, reqEntity, process, output, outputType, wip)
-      }
+      // traverseEntity(entity, reqEntity, process, output, outputType, wip)
     }
-  }
-
-
-  function buildOutput(entity, reqEntity, process, output, outputType, wip) { 
-    var wip = Object.assign(entity);
-    console.log(wip);
+//this function takes a runtime Input and produces a run time output, while Mutating, Values from one key to another
+//eg Taking CSS properties of an element and displaying as dyanamic values on the page.
+  } else if (process === "mutateOutput") { 
+    
+    
+    console.log(wip, entity);
     return wip;
+    }
 
+
+
+
+  
   }
+
 
 
 
@@ -95,7 +95,7 @@ function buildCase() {
 
 function traverseArray(arr, input, process, output, outputType, wip) {
   for (i = 0; i <= arr.length; i++) { 
-   // console.log("foundEntity in Array", arr[i]);
+   //console.log("foundEntity in Array", arr[i]);
     var tmp = exeProcess(arr[i], input, process, output, outputType, wip)
    // traverseEntity(arr[i], input, process, output, outputType,wip);
   }
