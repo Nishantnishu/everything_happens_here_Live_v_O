@@ -5,66 +5,49 @@ function getEntityType(entity) {
 // atemporary workinProgress variable, used to build output until mutated/created
 let wip;
 
-
-
-
-function ehhEntityProcess(reqEntity, processingEntity, process, output, outputType, wip) {
+function ehhProcessEntity(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess){ 
+  currentProcess = "ehhProcessEntity";
 
   if (!reqEntity || !processingEntity) { return; };
-  if (getEntityType(processingEntity) === "CSSStyleRule" && process === "save") {
+
+  if (processingEntity ==='CSSRuleList') {
+    console.log(currentProcess, getEntityType(processingEntity), entity2Find);
+    var processingEntity = document.styleSheets[0].cssRules;
+    if (processingEntity.length) {
+    //  console.log("handling get");
+      iterateEntity(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess);
+    }
+  
+  }
+  
+  if (getEntityType(processingEntity) === entity2Find || getEntityType(processingEntity) === 'CSSMediaRule' && request==='get') { 
+
+    if (reqEntity.matches(processingEntity.selectorText) === true) { 
+     console.log("found Entity", processingEntity.style);
+      iterateObject(reqEntity, processingEntity.style, entity2Find, values, output, outputType, "mutate", currentProcess);
+    }
+ 
+  }
+  if (request === "mutate") { 
 
     console.log("mutating", processingEntity);
-
-  }else if (processingEntity === "CSSRuleList" && process === 'matching') {
-    
-    //console.log("findingMatchingEntity");
-    var processingEntity = document.styleSheets[0].cssRules;
-    
-    iterateEntity(reqEntity, processingEntity, process, output, outputType, wip);
-
-  } else if (getEntityType(processingEntity) === "CSSStyleRule" && process === 'matching') {
-    
-    if (reqEntity.matches(processingEntity.selectorText) === true && processingEntity.selectorText) {
-      iterateEntity(reqEntity, processingEntity, "mutateOutput", output, outputType, wip);
-    }
-
-
-  } else if (getEntityType(processingEntity) === "CSSStyleRule" && process === 'matching') {
-
-    if (reqEntity.matches(processingEntity.selectorText) === true && processingEntity.selectorText) {
-      iterateEntity(reqEntity, processingEntity, "mutateOutput", output, outputType, wip);
-    }
-
-
-  } 
-
+  }
 
 
 
 
 }
 
-//function to in a way build per process usecase. It gets the processing Entity, and ships it to tranverse
 
-
-
-
-
-
-
-
-function iterateEntity(reqEntity, processingEntity, process, output, outputType, wip){ 
-
-  if (!reqEntity) {
-    return;
-  } else if (isArray(processingEntity)) {
-
-    iterateArray(reqEntity, processingEntity, process, output, outputType, wip);
-  
+function iterateEntity(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess){ 
+ // currentProcess = "iterateEntity";
+  // console.log(request,typeof processingEntity, processingEntity);
+ if (isArray(processingEntity)) {
+   iterateArray(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess); 
   } else if ((typeof processingEntity === 'object') && (processingEntity !== null)) {
-    //console.log("foundObject", processingEntity);
-    iterateObject(reqEntity, processingEntity, process, output, outputType, wip);
-      } else {
+  // console.log("foundObject", processingEntity);
+  iterateObject(reqEntity, processingEntity, entity2Find, values, output, outputType, request,currentProcess);
+    } else {
    // console.log(processingEntity);
   }
 
@@ -72,28 +55,25 @@ function iterateEntity(reqEntity, processingEntity, process, output, outputType,
 
 }
 
-function iterateArray(input, arr, process, output, outputType, wip) {
+function iterateArray(reqEntity, arr, entity2Find, values, output, outputType, request, currentProcess) {
+  //currentProcess = "iterateArray";
   for (i = 0; i <= arr.length; i++) {
-    //console.log("foundEntity in Array", arr[i]);
-  //  var tmp = exeProcess(arr[i], input, process, output, outputType, wip)
-    ehhEntityProcess(input,arr[i], process, output, outputType,wip);
+    if (arr[i]) {
+   // console.log("foundEntity in Array", arr[i], typeof arr[i]);
+      ehhProcessEntity(reqEntity, arr[i], entity2Find, values, output, outputType, request,"array");
+    }
   }
 }
 
 
 
-function iterateObject(input, obj, process, output, outputType, wip) {
- 
- // if (!obj) { return; }
-  
+function iterateObject(reqEntity, obj, entity2Find, values, output, outputType, request) {
+  currentProcess = "iterateObject";
+ // if (!obj) { return; } 
   for (var key in obj) {
-   // console.log(key);
-    if (!obj.hasOwnProperty(key) && obj[key]) {
-      if (key === 'style') { 
-        console.log("style",obj.style);
-      }
-     
-      ehhEntityProcess(input, obj[key], "style", output, outputType, wip);
+    if (obj[key] && obj[key]!= 'function') {
+   // console.log(key, obj[key]);    
+   ehhProcessEntity(reqEntity, key, entity2Find, values, output, outputType, request);
     }
   }
 }

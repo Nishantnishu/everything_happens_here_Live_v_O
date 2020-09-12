@@ -115,8 +115,12 @@ function click(e) {
     } if (getEntityType(targetElement).includes("Element") && targetElement!= contextElement) { 
        // console.log("foundclick", targetElement);
         var output;
-        var outputType = "json"
-        ehhEntityProcess(targetElement,"CSSRuleList","matching",output,outputType);     
+        var outputType = "json";
+        var entity2Process = "CSSRuleList";
+        var entity2Find = "CSSStyleRule";
+        var values = "active";
+        var request = "get";
+        ehhProcessEntity(targetElement, entity2Process, entity2Find,values,output,outputType,request);     
     }
 
 
