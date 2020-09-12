@@ -1,4 +1,5 @@
-switch (day) {
+
+switch (ehhCase) {
     case getEntityType:
         dayName = 'Sunday';
         break;
@@ -23,4 +24,4 @@ switch (day) {
     default:
         dayName = 'Invalid day';
 }
-console.log(dayName); // Tuesday
+console.log(ehhCase); // Tuesday
