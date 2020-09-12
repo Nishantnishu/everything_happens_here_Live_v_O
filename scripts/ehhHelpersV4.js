@@ -52,8 +52,8 @@ function buildCase() {
 
 
   function exeProcess(entity, reqEntity, process, output, outputType, wip) {
-    // console.log(process);
-    if (process === "matching") {
+   // console.log("exe",entity);
+    if (process === "matching") {// entity has a value selector text to be added.
       if (reqEntity.matches(entity.selectorText) === true) {
          //console.log(input.matches(entity.selectorText), entity); 
         var tmp = buildOutput(entity, reqEntity, process, output, outputType, wip);
@@ -69,7 +69,7 @@ function buildCase() {
 
   function buildOutput(entity, reqEntity, process, output, outputType, wip) { 
     var wip = Object.assign(entity);
-  //  console.log(wip);
+    console.log(wip);
     return wip;
 
   }
