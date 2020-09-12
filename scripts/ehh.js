@@ -116,7 +116,7 @@ function click(e) {
        // console.log("foundclick", targetElement);
         var output;
         var outputType = "json"
-        processEntity(targetElement,"CSSRuleList","matching",output,outputType);     
+        ehhEntityProcess(targetElement,"CSSRuleList","matching",output,outputType);     
     }
 
 
