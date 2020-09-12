@@ -2,16 +2,15 @@
 function getEntityType(entity) {
     return Object.getPrototypeOf(entity).constructor.name;//entity.__proto__.constructor.name
 }
-
+wip = {};
 function processEntity(entity, process, output, outputType) {
    
-    if (process === "getCss") {
+  if (process === "CSSStyleRule") {
         var styleSheet = document.styleSheets;
         var cssRules = document.styleSheets[0].cssRules;
-        wip = {};
+       
         var tmp = iterateEntity(cssRules, entity, process, output, outputType,wip);
-      // console.log(tmp);
-        
+       console.log(tmp);    
     }
 }
 
@@ -19,15 +18,16 @@ function processEntity(entity, process, output, outputType) {
 //Add Create and Append.
 
 function iterateEntity(entity, input, process, output, outputType, wip) { 
-   console.log(wip);
-   //console.log(entity, input, process, output, outputType);
+  //console.log("wip",wip);
+  // console.log(entity, input, process, output, outputType,wip);
    // console.log(entity, inputEntity, process, output, outputType);
   // console.log(Array.isArray(entity))
 
     if (isArray(entity)) {
         traverseArray(entity, input, process, output, outputType, wip);
     } else if ((getEntityType(entity) === 'object') && (entity !== null)) {
-        traverseObject(entity, input, process, output, outputType, wip);
+      console.log(entity);
+      traverseObject(entity, input, process, output, outputType, wip);
     } else if ((getEntityType(entity) === 'CSSRuleList') && (entity !== null)) {
         //console.log(entity);
         traverseObject(entity, input, process, output, outputType, wip);
@@ -35,19 +35,17 @@ function iterateEntity(entity, input, process, output, outputType, wip) {
         //console.log(process);
        // console.log("wip", wip);
         var response = exeProcess(entity, input, process, wip);
-       // console.log(response);
-        if (response != null || response != undefined) { 
-         
-            console.log("wip", wip);
-         //   return response;
-            
-           var wip = buildOutput(response, output, outputType,wip);
-            console.log("uo",wip);
-        }
         
-    
+        if (response != null || response != undefined) { 
+        //  console.log("wip", wip);
+         
+          console.log(response.style);
+          return response;
+           //var wip = buildOutput(response, output, outputType,wip);
+            //console.log("uo",wip);
+        }
     } 
-    
+  return response;  
 }
 
 function buildOutput(response, output, outputType,wip) { 
@@ -70,11 +68,11 @@ function buildOutput(response, output, outputType,wip) {
 
 function exeProcess(entity, input, process,wip) {
    // console.log(process);
-    if (process === "getCss") {
-        if (input.matches(entity.selectorText) === true) {
+  if (process === "CSSStyleRule") {
+    if (input.matches(entity.selectorText) === true) { 
             // console.log(input.matches(entity.selectorText), entity);
             return entity;
-        } ;
+        };
     }
 }
 
