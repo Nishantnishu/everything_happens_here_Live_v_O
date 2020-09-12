@@ -13,23 +13,19 @@ function ehhProcessEntity(reqEntity, processingEntity, entity2Find, values, outp
    // console.log(currentProcess, getEntityType(processingEntity), entity2Find);
     var processingEntity = document.styleSheets[0].cssRules;
     if (processingEntity.length) {
-         output = getEntityType(processingEntity);
-        //console.log("outputCreated",output);
-      
+        output = processingEntity;
+        console.log("outputCreated",output);
       iterateEntity(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess);
     }
   }
 
-
   if (getEntityType(processingEntity) === entity2Find || getEntityType(processingEntity) === 'CSSMediaRule' && request==='get') { 
     
     if (reqEntity.matches(processingEntity.selectorText) === true) { 
-      
-      
-      console.log("addEntity", getEntityType(processingEntity), processingEntity);
-      output = { ...output,  processingEntity  }; 
+      console.log("deleting",processingEntity,"from",output);
+      delete output.processingEntity;
+      //console.log("addEntity", getEntityType(processingEntity), processingEntity);
       console.log("output",output);
-      
       iterateObject(reqEntity, output, entity2Find, values, output, outputType, "mutate", currentProcess);
 
     }
