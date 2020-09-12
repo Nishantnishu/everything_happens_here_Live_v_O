@@ -1,48 +1,67 @@
 
-function getEntityType(entity) {
-    return Object.getPrototypeOf(entity).constructor.name;//entity.__proto__.constructor.name
-}
-// atemporary workinProgress variable, used to build output until mutated/created
+//curretn process is a tempopary variable to help monitor the console.*tobe ignored
+// a temporary workinProgress variable, used to build output until mutated/created
+
 let wip;
 
-function ehhProcessEntity(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess){ 
+function ehhProcessEntity(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess) { 
   currentProcess = "ehhProcessEntity";
 
   if (!reqEntity || !processingEntity) { return; };
 
   if (processingEntity ==='CSSRuleList') {
-    console.log(currentProcess, getEntityType(processingEntity), entity2Find);
+   // console.log(currentProcess, getEntityType(processingEntity), entity2Find);
     var processingEntity = document.styleSheets[0].cssRules;
     if (processingEntity.length) {
-    //  console.log("handling get");
+         output = getEntityType(processingEntity);
+        //console.log("outputCreated",output);
+      
       iterateEntity(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess);
     }
-  
   }
-  
-  if (getEntityType(processingEntity) === entity2Find || getEntityType(processingEntity) === 'CSSMediaRule' && request==='get') { 
 
+
+  if (getEntityType(processingEntity) === entity2Find || getEntityType(processingEntity) === 'CSSMediaRule' && request==='get') { 
+    
     if (reqEntity.matches(processingEntity.selectorText) === true) { 
-     console.log("found Entity", processingEntity.style);
-      iterateObject(reqEntity, processingEntity.style, entity2Find, values, output, outputType, "mutate", currentProcess);
+      
+      
+      console.log("addEntity", getEntityType(processingEntity), processingEntity);
+      output = { ...output,  processingEntity  }; 
+      console.log("output",output);
+      
+      iterateObject(reqEntity, output, entity2Find, values, output, outputType, "mutate", currentProcess);
+
     }
- 
   }
   if (request === "mutate") { 
-
-    console.log("mutating", processingEntity);
+   // console.log("mutating", processingEntity);
   }
-
-
-
 
 }
 
 
+
+
+
+
+
+function clean(obj) {
+  var propNames = Object.getOwnPropertyNames(obj);
+  for (var i = 0; i < propNames.length; i++) {
+    var propName = propNames[i];
+    if (obj[propName] === null || obj[propName] === undefined) {
+      delete obj[propName];
+    }
+  }
+}
+
+
 function iterateEntity(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess){ 
- // currentProcess = "iterateEntity";
-  // console.log(request,typeof processingEntity, processingEntity);
- if (isArray(processingEntity)) {
+  currentProcess = "iterateEntity";
+   
+  if (isArray(processingEntity)) {
+   // console.log(request, typeof processingEntity, processingEntity);
    iterateArray(reqEntity, processingEntity, entity2Find, values, output, outputType, request, currentProcess); 
   } else if ((typeof processingEntity === 'object') && (processingEntity !== null)) {
   // console.log("foundObject", processingEntity);
@@ -51,16 +70,14 @@ function iterateEntity(reqEntity, processingEntity, entity2Find, values, output,
    // console.log(processingEntity);
   }
 
-
-
 }
 
 function iterateArray(reqEntity, arr, entity2Find, values, output, outputType, request, currentProcess) {
-  //currentProcess = "iterateArray";
+  currentProcess = "iterateArray";
   for (i = 0; i <= arr.length; i++) {
     if (arr[i]) {
-   // console.log("foundEntity in Array", arr[i], typeof arr[i]);
-      ehhProcessEntity(reqEntity, arr[i], entity2Find, values, output, outputType, request,"array");
+      //console.log("foundEntity in Array", arr[i], typeof arr[i]);
+      ehhProcessEntity(reqEntity, arr[i], entity2Find, values, output, outputType, request, currentProcess);
     }
   }
 }
@@ -78,17 +95,17 @@ function iterateObject(reqEntity, obj, entity2Find, values, output, outputType, 
   }
 }
 
-  function isArray(o) {
+function isArray(o) {
     return o.length;
-  }
+ }
 
 
-  function save(entity, keyTitle) {
+function save(entity, keyTitle) {
     // console.log("saving", keyTitle, JSON.stringify(entity));
     window.localStorage.setItem(keyTitle, JSON.stringify(entity));
-  }
+}
 
-  function find(entity, keyTofind) {
+function find(entity, keyTofind) {
     //console.log("finding", keyTofind, "in", entity);
     var result = Object.keys(entity).filter(function (key, index, self) {
       return !key.indexOf(keyTofind);
@@ -96,3 +113,7 @@ function iterateObject(reqEntity, obj, entity2Find, values, output, outputType, 
     return result;
   }
 
+
+function getEntityType(entity) {
+  return Object.getPrototypeOf(entity).constructor.name;//entity.__proto__.constructor.name
+}
