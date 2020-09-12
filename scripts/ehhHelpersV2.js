@@ -4,17 +4,6 @@ function save(entity, keyTitle) {
     window.localStorage.setItem(keyTitle, JSON.stringify(entity));
 }
 
-
-/**
-* Checks that an HTMLelement has a non-empty `name` and `value` property.
-* @param  {Element} element  the element to check
-* @return {Bool}             true if the element is an input, false if not
-*/
-const isValidElement = element => {
-    return element.name && element.value;
-};
-
-
 function getEntityType(entity) {
     return Object.getPrototypeOf(entity).constructor.name;//entity.__proto__.constructor.name
 }
@@ -26,7 +15,10 @@ function processEntity(entity, process, output, outputType) {
        // console.log(process);
         var styleSheet = document.styleSheets;
         var cssRules = document.styleSheets[0].cssRules;
-        iterateEntity(cssRules, entity, process, output, outputType);
+        var rule = conductEntityIteration(cssRules, entity, process, output, outputType);
+       // console.log(rule);
+        var temp = entity.matches(rule.selectorText);
+        //console.log(temp);
     }
 
     //console.log(entity, process);
@@ -38,7 +30,11 @@ function conductEntityIteration(entity, inputEntity, process, output, outputType
 
     if (typeof entity == "object") { 
        // console.log(getEntityType(entity), typeof entity);
-        iterateObject(entity, inputEntity, process, output, outputType);
+        console.log(iterateObject(entity, inputEntity, process, output, outputType));
+        
+        var response = iterateObject(entity, inputEntity, process, output, outputType);
+      //  console.log(response);
+        return response;
     }
 
 }
@@ -50,23 +46,14 @@ function iterateObject(object, inputEntity, process, output, outputType) {
        // console.log("keys", key, object);
         if (object.hasOwnProperty(key)) {
             const element = object[key];
-            if (exeAction(element, inputEntity)) {
-                console.log(element);
-               // return element;
-                buildOutput(element,inputEntity, output, outputType);
+                return element;
+              //  buildOutput(element,inputEntity, output, outputType);
           //  iterateConductor(element)
-            }  
+             
         }  
     }
 }
 
-function exeAction(element, inputEntity, process) { 
-   // console.log(inputEntity.matches(element.selectorText));
-    if (inputEntity.matches(element.selectorText)) {
-       return element;
-    } 
-    
-}
 
 
 

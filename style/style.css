@@ -9,7 +9,7 @@
 
  :root {
   background: linear-gradient(135deg, #f0f0f0 , #f3eee6 );
-  font-size: 13px;
+  font-size: 1.5vh;
   font-family: 'poppins';
 }
 ehh > * :hover{
@@ -17,7 +17,8 @@ ehh > * :hover{
 }
  
 
-[currentstate="mousemve"]{
+[currentstate="mousemove"]{
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
    
 }
 
@@ -105,7 +106,7 @@ footer {
   text-align: right;
   grid-column: 1 / 4;
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 1.2vh;
 }
 
 actionBar{
@@ -113,13 +114,17 @@ margin-top: 5px;
 }
 
 button {
+  margin-top: 1vh;
+  margin-right: 1vh;
   border-radius: 3px;
   border: none;
-  padding: 8px 54px;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
   text-align: center;
   font-family: 'poppins'; 
-  display: inline-block;
-  font-size: 16px;
+  display: inline-block;  
   background-color: transparent;
   box-shadow: 1px 1px 30px 1px rgba(0,0,0,0.10);
 }
@@ -127,17 +132,17 @@ button {
 h1{
   font-family: 'Bai Jamjuree', sans-serif;
   color: #1e2326;
-  font-size: 54px;
+  font-size: 5vh;
   margin-bottom: 34px;
   font-weight: 200;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.02), 2px 2px rgba(0, 0, 0, 0.02), 3px 3px rgba(0, 0, 0, 0.02), 4px 4px rgba(0, 0, 0, 0.02), 0.125rem 0.125rem rgba(0, 0, 0, 0.02), 6px 6px rgba(0, 0, 0, 0.02), 7px 7px rgba(0, 0, 0, 0.02), 8px 8px rgba(0, 0, 0, 0.02), 9px 9px rgba(0, 0, 0, 0.02), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.02), 11px 11px rgba(0, 0, 0, 0.02), 12px 12px rgba(0, 0, 0, 0.02), 13px 13px rgba(0, 0, 0, 0.02), 14px 14px rgba(0, 0, 0, 0.02), 0.625rem 0.625rem rgba(0, 0, 0, 0.02), 16px 16px rgba(0, 0, 0, 0.02), 17px 17px rgba(0, 0, 0, 0.02), 18px 18px rgba(0, 0, 0, 0.02), 19px 19px rgba(0, 0, 0, 0.02), 1.25rem 1.25rem rgba(0, 0, 0, 0.02);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.02), 2px 2px rgba(0, 0, 0, 0.02), 3px 3px rgba(0, 0, 0, 0.02), 4px 4px rgba(0, 0, 0, 0.02), 0.125rem 0.125rem rgba(0, 0, 0, 0.02), 6px 6px rgba(0, 0, 0, 0.02), 7px 7px rgba(0, 0, 0, 0.02), 8px 8px rgba(0, 0, 0, 0.02), 9px 9px rgba(0, 0, 0, 0.02), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.02), 11px 11px rgba(0, 0, 0, 0.02), 12px 12px rgba(0, 0, 0, 0.02), 13px 13px rgba(0, 0, 0, 0.02), 14px 14px rgba(0, 0, 0, 0.02), 0.625rem 0.625rem rgba(0, 0, 0, 0.02), 16px 16px rgba(0, 0, 0, 0.02), 17px 17px rgba(0, 0, 0, 0.02), 18px 18px rgba(0, 0, 0, 0.02);
 }
 
 
 p{
   margin-top: 13px;
   margin-bottom: 13px;
- color: #1e2326;
+  color: #1e2326;
 }
 
 #context-menu {
@@ -159,7 +164,7 @@ p{
 #context-menu .item {
   padding:8px 10px;
   font-family: 'Bai Jamjuree', sans-serif;
-  font-size:15px;
+  font: size 1.3vh;;
   color:black;
 }
 #context-menu .item:hover {
@@ -173,3 +178,16 @@ p{
   margin:2px 0px;
   border-color:rgb(173, 173, 173);
 }
+ /* Extra Small Devices, Phones */ 
+        @media only screen and (max-width : 480px) {
+
+h1{
+   font-size: 3vh;
+   text-shadow: 1px 1px rgba(0, 0, 0, 0.02), 2px 2px rgba(0, 0, 0, 0.02), 3px 3px rgba(0, 0, 0, 0.02), 4px 4px rgba(0, 0, 0, 0.02), 0.125rem 0.125rem rgba(0, 0, 0, 0.02), 6px 6px rgba(0, 0, 0, 0.02), 7px 7px rgba(0, 0, 0, 0.02), 8px 8px rgba(0, 0, 0, 0.02), 9px 9px rgba(0, 0, 0, 0.02), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.02), 11px 11px rgba(0, 0, 0, 0.02), 12px 12px rgba(0, 0, 0, 0.02), 13px 13px rgba(0, 0, 0, 0.02);
+}
+body >* {
+   font-size: 1.2vh;
+
+}
+
+        }

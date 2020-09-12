@@ -24,3 +24,7 @@
 //https://htmldom.dev/paste-an-image-from-the-clipboard/
 //https://htmldom.dev/position-an-element-absolutely-to-another-element/
 //https://htmldom.dev/placeholder-for-a-contenteditable-element/
+//https://github.com/bronzwikgk/Alignment-Guides
+//https://github.com/mdn/web-components-examples/tree/master/expanding-list-web-component
+//https://github.com/easylogic/editor
+//https://github.com/muaz-khan/Canvas-Designer
