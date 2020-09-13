@@ -14,14 +14,25 @@ function ehhProcessEntity(reqEntity, processingEntity, entity2Find, values, outp
     var processingEntity = document.styleSheets[0].cssRules;
     
    
-    var result = Object.values(processingEntity).filter(function (key, index, searchThis) {
-      if (reqEntity.matches(key.selectorText) === true) {
-        // console.log(key);
-        return key;
+    var result = Object.values(processingEntity).filter(function (obj, index, searchThis) {
+      if (reqEntity.matches(obj.selectorText) === true) {
+       console.log(obj)
+        return obj;
       }
     });
 
-    console.log(result);
+    var response = Object.values(result).map(function (ele) {
+      //console.log(ele);
+      return getRequested(ele, "key", "style");
+    });
+     
+   
+    console.log(response);
+
+   
+
+
+    //var response = clean(result);
 
   }
 
@@ -30,7 +41,22 @@ function ehhProcessEntity(reqEntity, processingEntity, entity2Find, values, outp
 
 
 
+//this function loops through either key's or values and searches for matching Lookfor Array Item
 
+function getRequested(obj, lookAt, lookfor) {
+  for (var key in obj) {
+    if (key === lookfor && lookAt === "key") {
+      console.log("foundKey", obj[key]);
+      if (obj[key] != null || obj[key] != undefined) {
+        return obj[key];  
+      }
+      
+    } else if (obj[key] === lookfor && lookAt === "value") {
+    //  console.log("found value");
+      return obj[key];
+    }
+  }
+}
 
 
 
@@ -42,6 +68,7 @@ function clean(obj) {
       delete obj[propName];
     }
   }
+  return obj;
 }
 
 

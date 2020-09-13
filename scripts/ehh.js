@@ -114,7 +114,7 @@ function click(e) {
 
     } if (getEntityType(targetElement).includes("Element") && targetElement!= contextElement) { 
        // console.log("foundclick", targetElement);
-        var output;
+        var output = {};
         var outputType = "json";
         var entity2Process = "CSSRuleList";
         var entity2Find = "CSSStyleRule";
