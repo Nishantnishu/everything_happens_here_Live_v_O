@@ -49,9 +49,18 @@ function getRequested(obj, lookAt, lookfor) {
     if (key === lookfor && lookAt === "key") {
      console.log("foundKey", obj[key]);
       console.log("foundKey", obj[key].length);
-      if (obj[key] != null && obj[key] != undefined && obj[key] != "" ) {
-        return obj[key];  
+      var temp = {}
+      for (var ke in obj[key]){
+        console.log("key  ",ke)
+        console.log("key value ",obj[key][ke])
+        
+        if (obj[key][ke] != null && obj[key][ke] != undefined && obj[key][ke] != "" ) {
+        temp[ke] = obj[key][ke];  
       }
+      }
+      return temp;
+      
+      
       
     } else if (obj[key] === lookfor && lookAt === "value") {
     //  console.log("found value");
