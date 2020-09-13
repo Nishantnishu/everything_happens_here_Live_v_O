@@ -22,12 +22,12 @@ function ehhProcessEntity(reqEntity, processingEntity, entity2Find, values, outp
     });
 
     var response = Object.values(result).map(function (ele) {
-      //console.log(ele);
+      console.log(ele);
       return getRequested(ele, "key", "style");
     });
      
    
-    console.log(response);
+    console.log("response",response);
 
    
 
@@ -44,10 +44,11 @@ function ehhProcessEntity(reqEntity, processingEntity, entity2Find, values, outp
 //this function loops through either key's or values and searches for matching Lookfor Array Item
 
 function getRequested(obj, lookAt, lookfor) {
+
   for (var key in obj) {
     if (key === lookfor && lookAt === "key") {
-      console.log("foundKey", obj[key]);
-      if (obj[key] != null || obj[key] != undefined) {
+   //   console.log("foundKey", obj[key]);
+      if (obj[key] != null && obj[key] != undefined && obj[key] != '' ) {
         return obj[key];  
       }
       
